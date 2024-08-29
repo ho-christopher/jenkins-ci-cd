@@ -5,7 +5,7 @@ pipeline {
         stage('Christopher Ho Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("chrisho7/python-app")
+                    bat 'docker build -t chrisho7/python-app'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('Christopher Ho - Push image to Dockerhub') {
             steps {
                 script {
-                    dockerImage.push('latest')
+                    bat 'docker push chrisho7/python-app'
                 }
             }
         }
