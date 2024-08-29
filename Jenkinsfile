@@ -1,7 +1,9 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Christopher Ho - Build Docker Image') {
+        }
+        stage('Christopher Ho Build Docker Image') {
             steps {
                 script {
                     dockerImage = docker.build("chrisho7/python-app")
@@ -11,8 +13,8 @@ pipeline {
         stage('Christopher Ho - Login to Dockerhub') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
-                        // Credentials should be configured in Jenkins
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+                        echo 'Logged in to DockerHub'
                     }
                 }
             }
