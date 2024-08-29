@@ -1,3 +1,3 @@
 FROM python:latest
-COPY test.py ./
+COPY christopher-ho.py ./
 CMD [ "python", "./christopher-ho.py" ]
